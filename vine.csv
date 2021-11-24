@@ -1609,143 +1609,142 @@ P21,MS1,4,N,Q2,Written,Flight,what was the average distance travelled by most di
 P21,MS1,7,N,Q2,Written,Flight,what day of the week had the least flights,SELECT Day_Of_Week FROM Flight GROUP BY Day_Of_Week ORDER BY COUNT(*) ASC LIMIT 1,0,The day of the week with the least delays was Tuesday.,5,3.5
 P21,MS1,3,N,Q2,Written,Flight,what was the average distance travelled,SELECT AVG(Distance) FROM Flight,0,The average distance travelled was 822.35 miles.,5,3.5
 P21,MS1,15,N,Q2,Written,Flight,were more flights diverted or cancelled,SELECT CASE WHEN ((SELECT COUNT(*) FROM Flight WHERE Diverted = 1) > (SELECT COUNT(*) FROM Flight WHERE Cancelled = 1)) THEN 'Diverted' ELSE 'Cancelled' END,0,There were more cancelled flights than diverted flights with 89884 cancellations and 18172 diversions.,5,3.5
-P22,Study,Query_Num,Is_CS,Phase,Mode,Dataset,Question,SQL_Translation,Context,Answer,Flight_Score,Credit_Score
-P23,MS2,1,N,E1,Spoken,Credit,What does the dependent count mean?,NP,0,The most common dependent count is one?,4.5,8
-P23,MS2,2,N,E1,Spoken,Credit,What does the card category mean?,NP,0,The most common card category is Blue.,4.5,8
-P23,MS2,3,N,E1,Spoken,Credit,What is the average number of months on book?,SELECT AVG(Months_On_Book) FROM Credit ,0,The average months on book is 12.,4.5,8
-P23,MS2,4,N,E1,Spoken,Credit,What is the average income category?,NP,0,Unknown identifier: “average” for text column.,4.5,8
-P23,MS2,5,N,E1,Spoken,Credit,What is the most common marital status?,SELECT Marital_Status FROM Credit GROUP BY Marital_Status ORDER BY COUNT(*) DESC LIMIT 1,0,The most common marital status is married.,4.5,8
-P23,MS2,6,N,E1,Spoken,Credit,What is the most educational level?,SELECT Education_Level FROM Credit GROUP BY Education_Level ORDER BY COUNT(*) DESC LIMIT 1,0,The most common education level is high school.,4.5,8
-P23,MS2,7,N,E1,Spoken,Credit,What is the average credit limit?,SELECT AVG(Credit_Limit) FROM Credit,0,The average credit limit is 9817 dollars.,4.5,8
-P23,MS2,8,N,E1,Spoken,Credit,What is the average customer age?,SELECT AVG(Customer_Age) FROM Credit,0,The average customer age is 43.,4.5,8
-P23,MS2,9,N,E1,Spoken,Credit,What is the most common attrition flag?,SELECT Attrition_Flag FROM Credit GROUP BY Attrition_Flag ORDER BY COUNT(*) DESC LIMIT 1,0,The most common attrition flag is Existing Customer.,4.5,8
-P23,MS2,10,N,E1,Spoken,Credit,What is the highest total trans amount?,SELECT MAX(Total_Trans_Amt) FROM Credit,0,The highest total transaction amount is 1500499 dollars.,4.5,8
-P23,MS2,11,N,E1,Spoken,Credit,What is the highest total trans c t?,SELECT MAX(Total_Trans_Ct) FROM Credit,0,The highest total transaction count is 1567 transactions.,4.5,8
-P23,MS2,12,N,E1,Spoken,Credit,What is the most common income category?,SELECT Income_Category FROM Credit GROUP BY Income_Category ORDER BY COUNT(*) DESC LIMIT 1,0,The most common income category is < 40K.,4.5,8
-P23,MS2,13,N,E1,Spoken,Credit,What is the minimum credit limit?,SELECT MIN(Credit_Limit) FROM Credit,0,The smallest credit limit awarded was 615 dollars.,4.5,8
-P23,MS2,14,N,E1,Spoken,Credit,What is the most common gender?,SELECT Gender FROM Credit GROUP BY Gender ORDER BY COUNT(*) DESC LIMIT 1,0,The most common gender is Female.,4.5,8
-P23,MS2,15,N,E1,Spoken,Credit,What is the highest dependent count?,SELECT MAX(Dependent_Count) FROM Credit,0,The highest dependent count is 9.,4.5,8
-P23,MS2,16,N,E1,Spoken,Credit,What is the average total transaction amount?,SELECT AVG(Total_Trans_Amt) FROM Credit,0,The average total transaction value is 4320.76,4.5,8
-P23,MS2,17,N,E1,Spoken,Credit,What is the least common card category?,SELECT Card_Category FROM Credit GROUP BY Card_Category ORDER BY COUNT(*) ASC LIMIT 1,0,The least common card category is Platinum.,4.5,8
-P23,MS2,15,N,E2,Written,Flight,What is the least common airline?,SELECT Airline FROM Flight GROUP BY Airline ORDER BY COUNT(*)  ASC LIMIT 1,0,The airline with the least delays is Alaskan Airlines.,4.5,8
-P23,MS2,8,N,E2,Written,Flight,What is the least common scheduled departure time?,SELECT Departure_time FROM Flight GROUP BY Departure_Time ORDER BY COUNT(*) ASC LIMIT 1,0,The least common scheduled departure time is 02:32:00.,4.5,8
-P23,MS2,13,N,E2,Written,Flight,What is the average diverted?,SELECT AVG(Diverted) FROM Flight,0,The average number of diverted is .00024.,4.5,8
-P23,MS2,5,N,E2,Written,Flight,What is the most common origin airport?,SELECT Origin_Airport FROM Flight GROUP BY Origin_Airport ORDER BY COUNT(*) DESC LIMIT 1,0,The origin airport with the most delays is BOS.,4.5,8
-P23,MS2,18,N,E2,Written,Flight,What is the least common month?,SELECT Month FROM Flight GROUP BY Month ORDER BY COUNT(*) ASC LIMIT 1,0,The month with the least delays is February with 405718 delays.,4.5,8
-P23,MS2,1,N,E2,Written,Flight,What is the most common airline?,SELECT Airline FROM Flight GROUP BY Airline ORDER BY COUNT(*) DESC LIMIT 1,0,The airline with the most delays is Southwest Airlines.,4.5,8
-P23,MS2,6,N,E2,Written,Flight,What is the most common destination airport?,SELECT Destination_Airport FROM Flight GROUP BY Destination_Airport ORDER BY COUNT(*) DESC LIMIT 1,0,The destination airport with the most delays is EWR.,4.5,8
-P23,MS2,14,N,E2,Written,Flight,What is the average number of cancelled?,SELECT AVG(Cancelled) FROM Flight,0,The average number of cancelled is .00108.,4.5,8
-P23,MS2,17,N,E2,Written,Flight,What is the earliest arrival time?,SELECT MIN(Arrival_Time) FROM Flight,0,The earliest scheduled arrival time is 00:00:00.,4.5,8
-P23,MS2,10,N,E2,Written,Flight,What is the average distance?,SELECT AVG(Distance) FROM Flight,0,The average distance travelled is 804.38 miles.,4.5,8
-P23,MS2,4,N,E2,Written,Flight,What is the most common month?,SELECT Month FROM Flight GROUP BY Month ORDER BY COUNT(*) DESC LIMIT 1,0,The month with the most delays is December with 514718 delays.,4.5,8
-P23,MS2,12,N,E2,Written,Flight,What is the average scheduled arrival time?,SELECT AVG(Scheduled_Arrival) FROM Flight,0,The average scheduled arrival time is 13:55:18.,4.5,8
-P23,MS2,19,N,E2,Written,Flight,What is the maximum cancelled?,SELECT MAX(Cancelled) FROM Flight ,0,The maximum cancelled is 1.,4.5,8
-P23,MS2,16,N,E2,Written,Flight,What is the least common destination airport?,SELECT Destination_Airport FROM Flight GROUP BY Destination_Airport ORDER BY COUNT(*) ASC LIMIT 1,0,The destination airport with the least delays is Zipcode 11718.,4.5,8
-P23,MS2,7,N,E2,Written,Flight,What is the most common scheduled departure time?,SELECT Scheduled_Departure FROM Flight GROUP BY Scheduled_Departure ORDER BY COUNT(*) DESC LIMIT 1,0,The most common scheduled departure time is 20:30:00.,4.5,8
-P23,MS2,2,N,E2,Written,Flight,What is the average day of the week?,SELECT AVG(Day_Of_Week) FROM Flight,0,Unknown identifier: “average” for day of week.,4.5,8
-P23,MS2,9,N,E2,Written,Flight,What is the latest departure time?,SELECT MAX(Departure_Time) FROM Flight,0,The latest scheduled departure time is 23:59:00.,4.5,8
-P23,MS2,3,N,E2,Written,Flight,What is the most common day of the week?,SELECT Day_Of_Week FROM Flight GROUP BY Day_Of_Week ORDER BY COUNT(*) DESC LIMIT 1,0,The day of the week with the most delays is Tuesday.,4.5,8
-P23,MS2,11,N,E2,Written,Flight,What is the maximum distance?,SELECT MAX(Distance) FROM Flight ,0,The maximum distance travelled is 4218 miles from EWR to HNL.,4.5,8
-P23,MS2,1,N,Q1,Spoken,Credit,What is the most common attrition flag?,SELECT Attrition_Flag FROM Credit GROUP BY Attrition_Flag ORDER BY COUNT(*) DESC LIMIT 1,0,The most common attrition flag is existing customer. There are 8500 existing customers and 1500 attrited customers.,4.5,8
-P23,MS2,2,N,Q1,Spoken,Credit,What is the average customer age?,SELECT AVG(Customer_Age) FROM Credit,0,The average customer age is 46.,4.5,8
-P23,MS2,3,N,Q1,Spoken,Credit,What is the most common gender?,SELECT Gender FROM Credit GROUP BY Gender ORDER BY COUNT(*) DESC LIMIT 1,0,The most common gender is Female.,4.5,8
-P23,MS2,4,N,Q1,Spoken,Credit,What is the average dependent count?,SELECT AVG(Dependent_Count) FROM Credit,0,The average dependent count is 2.3.,4.5,8
-P23,MS2,5,N,Q1,Spoken,Credit,What is the most common education level?,SELECT Education_Level FROM Credit GROUP BY Education_Level ORDER BY COUNT(*) DESC LIMIT 1,0,The most common education level is Graduate.,4.5,8
-P23,MS2,6,N,Q1,Spoken,Credit,What is the most common marital status?,SELECT Marital_Status FROM Credit GROUP BY Marital_Status ORDER BY COUNT(*) DESC LIMIT 1,0,The most common marital status is Married.,4.5,8
-P23,MS2,7,N,Q1,Spoken,Credit,What is the most common income category?,SELECT Income_Category FROM Credit GROUP BY Income_Category ORDER BY COUNT(*) DESC LIMIT 1,0,The most common income category is < 40K.,4.5,8
-P23,MS2,8,N,Q1,Spoken,Credit,What is the most common card category?,SELECT Card_Category FROM Credit GROUP BY Card_Category ORDER BY COUNT(*) DESC LIMIT 1,0,The most common card category is Blue.,4.5,8
-P23,MS2,9,N,Q1,Spoken,Credit,What is the average months on book?,SELECT AVG(Months_On_Book) FROM Credit,0,The average months on book is 12.,4.5,8
-P23,MS2,10,N,Q1,Spoken,Credit,What is the average credit limit?,SELECT AVG(Credit_Limit) FROM Credit ,0,The average credit limit is 9817 dollars.,4.5,8
-P23,MS2,11,N,Q1,Spoken,Credit,What is the average total transaction amount?,SELECT AVG(Total_Trans_Amt) FROM Credit,0,The average total transaction value is 4404.08.,4.5,8
-P23,MS2,12,N,Q1,Spoken,Credit,What is the average total transaction count?,SELECT AVG(Total_Trans_Ct) FROM Credit,0,The average total transaction count is 65.67.,4.5,8
-P23,MS2,13,N,Q1,Spoken,Credit,What is the highest customer age?,SELECT MAX(Customer_Age) FROM Credit,0,The highest customer age is 87.,4.5,8
-P23,MS2,14,N,Q1,Spoken,Credit,What is the highest income category?,NP,0,The highest income category is > 240K.,4.5,8
-P23,MS2,15,N,Q1,Spoken,Credit,What is the least common card category?,SELECT Card_Category FROM Credit GROUP BY Card_Category ORDER BY COUNT(*) ASC LIMIT 1,0,The least common card category is Platinum.,4.5,8
-P23,MS2,16,N,Q1,Spoken,Credit,What is the highest number of months on book?,SELECT MAX(Months_On_Book) FROM Credit ,0,The highest number of months on book is 186.,4.5,8
-P23,MS2,17,N,Q1,Spoken,Credit,What is the least total transaction count?,SELECT MIN(Total_Trans_Ct) FROM Credit,0,The lowest total transaction count is 0.,4.5,8
-P23,MS2,18,N,Q1,Spoken,Credit,What is the lowest total transaction amount?,SELECT MIN(Total_Trans_Amt) FROM Credit,0,The lowest total transaction value is 0 dollars.,4.5,8
-P23,MS2,19,N,Q1,Spoken,Credit,What is the least common education level?,SELECT Education_Level FROM Credit GROUP BY Education_Level ORDER BY COUNT(*) ASC LIMIT 1,0,The least common education level is Doctorate.,4.5,8
-P23,MS2,20,N,Q1,Spoken,Credit,What is the minimum customer age?,SELECT MIN(Customer_Age) FROM Credit,0,The minimum customer age is 23.,4.5,8
-P23,MS2,21,N,Q1,Spoken,Credit,What is the maximum credit limit?,SELECT MAX(Credit_Limit) FROM Credit ,0,The maximum credit limit is 34516,4.5,8
-P23,MS2,1,N,Q2,Written,Flight,What is the most common month?,SELECT Month FROM Flight GROUP BY Month ORDER BY COUNT(*) DESC LIMIT 1,0,The month with the most delays is March with 504312 delays.,4.5,8
-P23,MS2,2,N,Q2,Written,Flight,What is the most common day of the week?,SELECT Day_Of_Week FROM Flight GROUP BY Day_Of_Week ORDER BY COUNT(*) DESC LIMIT 1,0,The day of the week with the most delays is Wednesday.,4.5,8
-P23,MS2,3,N,Q2,Written,Flight,What is the most common airline?,SELECT Airline FROM Flight GROUP BY Airline ORDER BY COUNT(*) DESC LIMIT 1,0,The airline with the most delays is Southwest Airlines.,4.5,8
-P23,MS2,4,N,Q2,Written,Flight,What is the most common origin airport?,SELECT Origin_Airport FROM Flight GROUP BY Origin_Airport ORDER BY COUNT(*) DESC LIMIT 1,0,The origin airport with the most delays is ATL.,4.5,8
-P23,MS2,5,N,Q2,Written,Flight,What is the most common destination airport?,SELECT Destination_Airport FROM Flight GROUP BY Destination_Airport ORDER BY COUNT(*) DESC LIMIT 1,0,The destination airport with the most delays is ATL.,4.5,8
-P23,MS2,6,N,Q2,Written,Flight,What is the most common scheduled departure?,SELECT Scheduled_Departure FROM Flight GROUP BY Scheduled_Departure ORDER BY COUNT(*) DESC LIMIT 1,0,The most common scheduled departure time is 06:00:00.,4.5,8
-P23,MS2,7,N,Q2,Written,Flight,What is the most common departure time?,SELECT Departure_Time FROM Flight GROUP BY Departure_Time ORDER BY COUNT(*) DESC LIMIT 1,0,The most common actual departure time is 08:24:00.,4.5,8
-P23,MS2,8,N,Q2,Written,Flight,What is the average distance?,SELECT AVG(Distance) FROM Flight,0,The average distance travelled is 822.35 miles.,4.5,8
-P23,MS2,9,N,Q2,Written,Flight,What is the average scheduled arrival time?,SELECT AVG(Arrival_Time) FROM Credit,0,The average scheduled arrival time is 13:45:26.,4.5,8
-P23,MS2,10,N,Q2,Written,Flight,What is the most common scheduled arrival time?,SELECT Scheduled_Arrival FROM Flight GROUP BY Scheduled_Arrival ORDER BY COUNT(*) DESC LIMIT 1,0,The most common scheduled arrival time is 20:30:00.,4.5,8
-P23,MS2,11,N,Q2,Written,Flight,What is the most common arrival time?,SELECT Arrival_Time FROM Flight GROUP BY Arrival_Time ORDER BY COUNT(*) DESC LIMIT 1,0,The most common actual arrival time is 20:45:00.,4.5,8
-P23,MS2,12,N,Q2,Written,Flight,What is the average diverted?,SELECT AVG(Diverted) FROM Flight ,0,The average number of diverted flights per day is 49.,4.5,8
-P23,MS2,13,N,Q2,Written,Flight,What is the average cancelled?,SELECT AVG(Cancelled) FROM Flight,0,The average number of cancelled flights per day is 246.,4.5,8
-P23,MS2,14,N,Q2,Written,Flight,Which origin airport had the most cancelled flights?,SELECT Origin_Airport FROM Flight GROUP BY Origin_Airport ORDER BY SUM(Cancelled) DESC LIMIT 1,0,The origin airport with the most cancelled flights was BOS.,4.5,8
-P23,MS2,15,N,Q2,Written,Flight,Which origin airport had the most diverted flights?,SELECT Origin_Airport FROM Flight GROUP BY Origin_Airport ORDER BY SUM(Diverted) DESC LIMIT 1,0,The origin airport with the most diverted flights was JFK.,4.5,8
-P23,MS2,16,N,Q2,Written,Flight,Which airport has the earliest scheduled departure time?,SELECT Origin_airport FROM Flight GROUP BY Origin_airport ORDER BY MIN(Departure_time) ASC LIMIT 1,0,The airport with the earliest scheduled departure time~ on average~ is LAX with 11:56:18.,4.5,8
-P23,MS2,17,N,Q2,Written,Flight,What is the least common month?,SELECT Month FROM Flight GROUP BY Month ORDER BY COUNT(*) ASC LIMIT 1,0,The least common month is February.,4.5,8
-P23,MS2,18,N,Q2,Written,Flight,What is the least common day of the week?,SELECT Day_Of_Week FROM Flight GROUP BY Day_Of_Week ORDER BY COUNT(*) ASC LIMIT 1,0,The day of the week with the least delays is Tuesday.,4.5,8
-P23,MS2,19,N,Q2,Written,Flight,What is the least common airline?,SELECT Airline FROM Flight GROUP BY Airline ORDER BY COUNT(*) ASC LIMIT 1,0,The airline with the least delays is Alaskan Airlines.,4.5,8
-P23,MS2,20,N,Q2,Written,Flight,What is the least common origin airport?,SELECT Origin_Airport FROM Flight GROUP BY Origin_Airport ORDER BY COUNT(*) ASC LIMIT 1,0,The origin airport with the least delays is Zipcode 11503.,4.5,8
-P23,MS2,21,N,Q2,Written,Flight,What is the least common destination airport?,SELECT Destination_Airport FROM Flight GROUP BY Destination_Airport ORDER BY COUNT(*) ASC LIMIT 1,0,The destination airport with the least delays is Zipcode 12098.,4.5,8
-P23,MS2,22,N,Q2,Written,Flight,What is the earliest scheduled departure time?,SELECT MIN(Scheduled_Departure) FROM Flight ,0,The earliest scheduled departure time is 00:01:00.,4.5,8
-P23,MS2,23,N,Q2,Written,Flight,What is the latest scheduled departure time?,SELECT MAX(Scheduled_Departure) FROM Flight,0,The latest scheduled departure Tims is 23:59:00.,4.5,8
-P23,MS2,24,N,Q2,Written,Flight,What is the earliest departure time?,SELECT MIN(Departure_Time) FROM Flight ,0,The earliest actual departure time is 00:00:00.,4.5,8
-P23,MS2,25,N,Q2,Written,Flight,What is the latest departure time?,SELECT MAX(Departure_Time) FROM Flight,0,The latest actual departure time is 23:59:00.,4.5,8
-P23,MS2,26,N,Q2,Written,Flight,What is the least distance?,SELECT MIN(Distance) FROM Flight,0,The least distance travelled is 18 miles from EWR to JFK.,4.5,8
-P23,MS2,27,N,Q2,Written,Flight,What is the maximum distance?,SELECT MAX(Distance) FROM Flight,0,The maximum distance travelled is 4218 miles from EWR to HNL.,4.5,8
-P24,MS2,1,N,E1,Written,Credit,What is the customer's age?,SELECT Customer_Age FROM Credit   ,0,The average customer age is 43.,4,6
-P24,MS2,10,N,E1,Written,Credit,What is the total trans ct?,SELECT Total_Trans_Ct FROM Credit ,0,The average total transaction count is 65.78.,4,6
-P24,MS2,11,N,E1,Written,Credit,What is the attrition flag?,SELECT Attrition_Flag FROM Credit  ,0,The most common attrition flag is Existing Customer.,4,6
-P24,MS2,8,N,E1,Written,Credit,What is the credit card or credit limit?,SELECT Credit_Limit FROM Credit,0,The average credit limit is 9817 dollars.,4,6
-P24,MS2,3,N,E1,Written,Credit,What is the education level?,SELECT Education_Level FROM Credit,0,The most common education level is High School.,4,6
-P24,MS2,6,N,E1,Written,Credit,What is the card category?,SELECT Card_Category FROM Credit,0,The most common card category is Blue.,4,6
-P24,MS2,7,N,E1,Written,Credit,What is the months on book?,SELECT Months_On_Book FROM Credit,0,The average months on book is 14.,4,6
-P24,MS2,4,N,E1,Written,Credit,What is the income?,SELECT Income_Category FROM Credit,0,The most common income category is <$40K.,4,6
-P24,MS2,2,N,E1,Written,Credit,What is the gender?,SELECT Gender FROM Credit,0,The most common gender is Female.,4,6
-P24,MS2,5,N,E1,Written,Credit,What is the marital status?,SELECT Marital_Status FROM Credit,0,The most common marital status is Married.,4,6
-P24,MS2,9,N,E1,Written,Credit,What is the total trans amt?,SELECT Total_Trans_Amt FROM Credit,0,The average total transaction amount is 4318.19.,4,6
-P24,MS2,12,N,E1,Written,Credit,What is the dependent count?,SELECT Dependent_Count FROM Credit ,0,The average dependent count is 2.1.,4,6
-P24,MS2,11,N,E2,Spoken,Flight,How many flights were diverted?,SELECT COUNT(*) FROM Flight WHERE Diverted = 1,0,There were 17816 diverted flights.,4,6
-P24,MS2,7,N,E2,Spoken,Flight,What is the departure time?,SELECT Departure_Time FROM Flight,0,The most common departure time is 12:00:00.,4,6
-P24,MS2,3,N,E2,Spoken,Flight,airline,SELECT Airline FROM Flight,0,The airline with the most delays is Delta.,4,6
-P24,MS2,13,N,E2,Spoken,Flight,What month?,SELECT Month FROM Flight,0,The month with the most delays is December with 514617 delays.,4,6
-P24,MS2,5,N,E2,Spoken,Flight,What is the destination airport?,SELECT Destination_Airport FROM Flight,0,The destination airport with the most delays is MIA~ the least delays is Zipcode 11516.,4,6
-P24,MS2,12,N,E2,Spoken,Flight,How many flights were cancelled?,SELECT COUNT(*) FROM Flight WHERE Cancelled = 1,0,There were 80716 cancelled flights.,4,6
-P24,MS2,16,N,E2,Spoken,Flight,What's the destination airport?,SELECT Destination_Airport FROM Flight,0,The destination airport with the most delays is MIA~ the least delays is Zipcode 11516.,4,6
-P24,MS2,10,N,E2,Spoken,Flight,What is diverted?,SELECT Diverted FROM Flight,0,There are two values for diverted~ 0 or 1.,4,6
-P24,MS2,15,N,E2,Spoken,Flight,What's the origin airport?,SELECT Origin_Airport FROM Flight,0,The origin airport with the most delays is JFK~ the origin airport with the least delays is Zipcode 56171.,4,6
-P24,MS2,14,N,E2,Spoken,Flight,What is the distance?,SELECT Distance FROM Flight ,0,The average flight distance is 798.67 miles.,4,6
-P24,MS2,8,N,E2,Spoken,Flight,What is the distance?,SELECT Distance FROM Flight,0,The average flight distance is 798.67 miles.,4,6
-P24,MS2,9,N,E2,Spoken,Flight,What is the arrival time?,SELECT Arrival_Time FROM Flight,0,The most common arrival time is 20:45:00.,4,6
-P24,MS2,1,N,E2,Spoken,Flight,month,SELECT Month FROM Flight,0,The month with the most delays is December with 514617 delays.,4,6
-P24,MS2,6,N,E2,Spoken,Flight,What is the scheduled departure?,SELECT Scheduled_Departure FROM Flight,0,The most common scheduled departure is 20:30:00.,4,6
-P24,MS2,2,N,E2,Spoken,Flight,day of the week,SELECT Day_Of_Week FROM Flight,0,The day of the week with the most delays is Monday.,4,6
-P24,MS2,4,N,E2,Spoken,Flight,What is the origin airport?,SELECT Origin_Airport FROM Flight,0,The origin airport with the most delays is JFK~ the origin airport with the least delays is Zipcode 56171.,4,6
-P24,MS2,5,N,Q1,Written,Credit,What is the education level?,SELECT Education_Level FROM Credit ,0,The most common education level is Graduate.,4,6
-P24,MS2,2,N,Q1,Written,Credit,What is the customer age?,SELECT Customer_Age FROM Credit,0,The average customer age is 46.,4,6
-P24,MS2,8,N,Q1,Written,Credit,What is the card category?,SELECT Card_Category FROM Credit,0,The most common card category is Blue.,4,6
-P24,MS2,1,N,Q1,Written,Credit,What is the attrition flag?,SELECT Attrition_Flag FROM Credit ,0,The most common attrition flag is Existing customer.,4,6
-P24,MS2,12,N,Q1,Written,Credit,What is the total trans ct?,SELECT Total_Trans_Ct FROM Credit ,0,The average total transaction count is 65.99.,4,6
-P24,MS2,9,N,Q1,Written,Credit,What is the months on book?,SELECT Months_On_Book FROM Credit,0,The average months on book is 12.,4,6
-P24,MS2,11,N,Q1,Written,Credit,What is the total trans amt?,SELECT Total_Trans_Amt FROM Credit,0,The average total transaction amount is 4404.08.,4,6
-P24,MS2,6,N,Q1,Written,Credit,What is the marital status?,SELECT Marital_Status FROM Credit,0,The most common marital status is Married.,4,6
-P24,MS2,7,N,Q1,Written,Credit,What is the income category?,SELECT Income_Category FROM Credit,0,The most common income category is < $40K.,4,6
-P24,MS2,10,N,Q1,Written,Credit,What is the credit limit?,SELECT Credit_Limit FROM Credit ,0,The average credit limit is 9888 dollars.,4,6
-P24,MS2,3,N,Q1,Written,Credit,What is the gender?,SELECT Gender FROM Credit,0,The most common gender is Female.,4,6
-P24,MS2,4,N,Q1,Written,Credit,What is the dependent count?,SELECT Dependent_Count FROM Credit,0,The average dependent count is 2.3.,4,6
-P24,MS2,10,N,Q2,Spoken,Flight,What's the arrival time?,SELECT Arrival_Time FROM Flight,0,The most common arrival time is 10:20:00.,4,6
-P24,MS2,9,N,Q2,Spoken,Flight,What's the scheduled arrival?,SELECT Scheduled_Arrival FROM Flight,0,The most common scheduled arrival is 06:00:00.,4,6
-P24,MS2,12,N,Q2,Spoken,Flight,What's the average cancelled?,SELECT AVG(Cancelled) FROM Flight,0,The average cancelled is .0145.,4,6
-P24,MS2,4,N,Q2,Spoken,Flight,Origin airport,SELECT Origin_Airport FROM Flight,0,The origin airport with the most delays was ATL.,4,6
-P24,MS2,6,N,Q2,Spoken,Flight,What's the scheduled departure?,SELECT Scheduled_Departure FROM Flight,0,The most common scheduled departure time was 20:00:00.,4,6
-P24,MS2,14,N,Q2,Spoken,Flight,What's average cancelled?,SELECT AVG(Cancelled) FROM Flight,0,The average cancelled is .0145,4,6
-P24,MS2,3,N,Q2,Spoken,Flight,Airline,SELECT Airline FROM Flight,0,The airline with the most delays was Southwest Airlines.,4,6
-P24,MS2,1,N,Q2,Spoken,Flight,What month had the most delay?,SELECT Month FROM Flight GROUP BY Month ORDER BY COUNT(*) DESC LIMIT 1,0,The month with the most delays was March with 504312 delays.,4,6
-P24,MS2,11,N,Q2,Spoken,Flight,What's the average diverted?,SELECT AVG(Diverted) FROM Flight,0,The average diverted is .00287.,4,6
-P24,MS2,7,N,Q2,Spoken,Flight,What's the departure time?,SELECT Departure_Time FROM Flight ,0,The most common departure time was 20:30:00.,4,6
-P24,MS2,2,N,Q2,Spoken,Flight,Day of the week,SELECT Day_Of_Week FROM Flight,0,The day of the week with the most delays was Wednesday.,4,6
-P24,MS2,5,N,Q2,Spoken,Flight,What's the destination airport?,SELECT Destination_Airport FROM Flight,0,The destination airport with the most delays was ATL.,4,6
-P24,MS2,15,N,Q2,Spoken,Flight,What is the scheduled departure?,SELECT Scheduled_Departure FROM Flight,0,The most common scheduled departure time was 20:00:00.,4,6
-P24,MS2,8,N,Q2,Spoken,Flight,What's the distance?,SELECT Distance FROM Flight,0,The average distance is 822.35 miles.,4,6
-P24,MS2,13,N,Q2,Spoken,Flight,What's cancelled?,SELECT Cancelled FROM Flight ,0,The values for cancelled are 0 or 1.,4,6
+P22,MS2,1,N,E1,Spoken,Credit,What does the dependent count mean?,NP,0,The most common dependent count is one?,4.5,8
+P22,MS2,2,N,E1,Spoken,Credit,What does the card category mean?,NP,0,The most common card category is Blue.,4.5,8
+P22,MS2,3,N,E1,Spoken,Credit,What is the average number of months on book?,SELECT AVG(Months_On_Book) FROM Credit ,0,The average months on book is 12.,4.5,8
+P22,MS2,4,N,E1,Spoken,Credit,What is the average income category?,NP,0,Unknown identifier: “average” for text column.,4.5,8
+P22,MS2,5,N,E1,Spoken,Credit,What is the most common marital status?,SELECT Marital_Status FROM Credit GROUP BY Marital_Status ORDER BY COUNT(*) DESC LIMIT 1,0,The most common marital status is married.,4.5,8
+P22,MS2,6,N,E1,Spoken,Credit,What is the most educational level?,SELECT Education_Level FROM Credit GROUP BY Education_Level ORDER BY COUNT(*) DESC LIMIT 1,0,The most common education level is high school.,4.5,8
+P22,MS2,7,N,E1,Spoken,Credit,What is the average credit limit?,SELECT AVG(Credit_Limit) FROM Credit,0,The average credit limit is 9817 dollars.,4.5,8
+P22,MS2,8,N,E1,Spoken,Credit,What is the average customer age?,SELECT AVG(Customer_Age) FROM Credit,0,The average customer age is 43.,4.5,8
+P22,MS2,9,N,E1,Spoken,Credit,What is the most common attrition flag?,SELECT Attrition_Flag FROM Credit GROUP BY Attrition_Flag ORDER BY COUNT(*) DESC LIMIT 1,0,The most common attrition flag is Existing Customer.,4.5,8
+P22,MS2,10,N,E1,Spoken,Credit,What is the highest total trans amount?,SELECT MAX(Total_Trans_Amt) FROM Credit,0,The highest total transaction amount is 1500499 dollars.,4.5,8
+P22,MS2,11,N,E1,Spoken,Credit,What is the highest total trans c t?,SELECT MAX(Total_Trans_Ct) FROM Credit,0,The highest total transaction count is 1567 transactions.,4.5,8
+P22,MS2,12,N,E1,Spoken,Credit,What is the most common income category?,SELECT Income_Category FROM Credit GROUP BY Income_Category ORDER BY COUNT(*) DESC LIMIT 1,0,The most common income category is < 40K.,4.5,8
+P22,MS2,13,N,E1,Spoken,Credit,What is the minimum credit limit?,SELECT MIN(Credit_Limit) FROM Credit,0,The smallest credit limit awarded was 615 dollars.,4.5,8
+P22,MS2,14,N,E1,Spoken,Credit,What is the most common gender?,SELECT Gender FROM Credit GROUP BY Gender ORDER BY COUNT(*) DESC LIMIT 1,0,The most common gender is Female.,4.5,8
+P22,MS2,15,N,E1,Spoken,Credit,What is the highest dependent count?,SELECT MAX(Dependent_Count) FROM Credit,0,The highest dependent count is 9.,4.5,8
+P22,MS2,16,N,E1,Spoken,Credit,What is the average total transaction amount?,SELECT AVG(Total_Trans_Amt) FROM Credit,0,The average total transaction value is 4320.76,4.5,8
+P22,MS2,17,N,E1,Spoken,Credit,What is the least common card category?,SELECT Card_Category FROM Credit GROUP BY Card_Category ORDER BY COUNT(*) ASC LIMIT 1,0,The least common card category is Platinum.,4.5,8
+P22,MS2,15,N,E2,Written,Flight,What is the least common airline?,SELECT Airline FROM Flight GROUP BY Airline ORDER BY COUNT(*)  ASC LIMIT 1,0,The airline with the least delays is Alaskan Airlines.,4.5,8
+P22,MS2,8,N,E2,Written,Flight,What is the least common scheduled departure time?,SELECT Departure_time FROM Flight GROUP BY Departure_Time ORDER BY COUNT(*) ASC LIMIT 1,0,The least common scheduled departure time is 02:32:00.,4.5,8
+P22,MS2,13,N,E2,Written,Flight,What is the average diverted?,SELECT AVG(Diverted) FROM Flight,0,The average number of diverted is .00024.,4.5,8
+P22,MS2,5,N,E2,Written,Flight,What is the most common origin airport?,SELECT Origin_Airport FROM Flight GROUP BY Origin_Airport ORDER BY COUNT(*) DESC LIMIT 1,0,The origin airport with the most delays is BOS.,4.5,8
+P22,MS2,18,N,E2,Written,Flight,What is the least common month?,SELECT Month FROM Flight GROUP BY Month ORDER BY COUNT(*) ASC LIMIT 1,0,The month with the least delays is February with 405718 delays.,4.5,8
+P22,MS2,1,N,E2,Written,Flight,What is the most common airline?,SELECT Airline FROM Flight GROUP BY Airline ORDER BY COUNT(*) DESC LIMIT 1,0,The airline with the most delays is Southwest Airlines.,4.5,8
+P22,MS2,6,N,E2,Written,Flight,What is the most common destination airport?,SELECT Destination_Airport FROM Flight GROUP BY Destination_Airport ORDER BY COUNT(*) DESC LIMIT 1,0,The destination airport with the most delays is EWR.,4.5,8
+P22,MS2,14,N,E2,Written,Flight,What is the average number of cancelled?,SELECT AVG(Cancelled) FROM Flight,0,The average number of cancelled is .00108.,4.5,8
+P22,MS2,17,N,E2,Written,Flight,What is the earliest arrival time?,SELECT MIN(Arrival_Time) FROM Flight,0,The earliest scheduled arrival time is 00:00:00.,4.5,8
+P22,MS2,10,N,E2,Written,Flight,What is the average distance?,SELECT AVG(Distance) FROM Flight,0,The average distance travelled is 804.38 miles.,4.5,8
+P22,MS2,4,N,E2,Written,Flight,What is the most common month?,SELECT Month FROM Flight GROUP BY Month ORDER BY COUNT(*) DESC LIMIT 1,0,The month with the most delays is December with 514718 delays.,4.5,8
+P22,MS2,12,N,E2,Written,Flight,What is the average scheduled arrival time?,SELECT AVG(Scheduled_Arrival) FROM Flight,0,The average scheduled arrival time is 13:55:18.,4.5,8
+P22,MS2,19,N,E2,Written,Flight,What is the maximum cancelled?,SELECT MAX(Cancelled) FROM Flight ,0,The maximum cancelled is 1.,4.5,8
+P22,MS2,16,N,E2,Written,Flight,What is the least common destination airport?,SELECT Destination_Airport FROM Flight GROUP BY Destination_Airport ORDER BY COUNT(*) ASC LIMIT 1,0,The destination airport with the least delays is Zipcode 11718.,4.5,8
+P22,MS2,7,N,E2,Written,Flight,What is the most common scheduled departure time?,SELECT Scheduled_Departure FROM Flight GROUP BY Scheduled_Departure ORDER BY COUNT(*) DESC LIMIT 1,0,The most common scheduled departure time is 20:30:00.,4.5,8
+P22,MS2,2,N,E2,Written,Flight,What is the average day of the week?,SELECT AVG(Day_Of_Week) FROM Flight,0,Unknown identifier: “average” for day of week.,4.5,8
+P22,MS2,9,N,E2,Written,Flight,What is the latest departure time?,SELECT MAX(Departure_Time) FROM Flight,0,The latest scheduled departure time is 23:59:00.,4.5,8
+P22,MS2,3,N,E2,Written,Flight,What is the most common day of the week?,SELECT Day_Of_Week FROM Flight GROUP BY Day_Of_Week ORDER BY COUNT(*) DESC LIMIT 1,0,The day of the week with the most delays is Tuesday.,4.5,8
+P22,MS2,11,N,E2,Written,Flight,What is the maximum distance?,SELECT MAX(Distance) FROM Flight ,0,The maximum distance travelled is 4218 miles from EWR to HNL.,4.5,8
+P22,MS2,1,N,Q1,Spoken,Credit,What is the most common attrition flag?,SELECT Attrition_Flag FROM Credit GROUP BY Attrition_Flag ORDER BY COUNT(*) DESC LIMIT 1,0,The most common attrition flag is existing customer. There are 8500 existing customers and 1500 attrited customers.,4.5,8
+P22,MS2,2,N,Q1,Spoken,Credit,What is the average customer age?,SELECT AVG(Customer_Age) FROM Credit,0,The average customer age is 46.,4.5,8
+P22,MS2,3,N,Q1,Spoken,Credit,What is the most common gender?,SELECT Gender FROM Credit GROUP BY Gender ORDER BY COUNT(*) DESC LIMIT 1,0,The most common gender is Female.,4.5,8
+P22,MS2,4,N,Q1,Spoken,Credit,What is the average dependent count?,SELECT AVG(Dependent_Count) FROM Credit,0,The average dependent count is 2.3.,4.5,8
+P22,MS2,5,N,Q1,Spoken,Credit,What is the most common education level?,SELECT Education_Level FROM Credit GROUP BY Education_Level ORDER BY COUNT(*) DESC LIMIT 1,0,The most common education level is Graduate.,4.5,8
+P22,MS2,6,N,Q1,Spoken,Credit,What is the most common marital status?,SELECT Marital_Status FROM Credit GROUP BY Marital_Status ORDER BY COUNT(*) DESC LIMIT 1,0,The most common marital status is Married.,4.5,8
+P22,MS2,7,N,Q1,Spoken,Credit,What is the most common income category?,SELECT Income_Category FROM Credit GROUP BY Income_Category ORDER BY COUNT(*) DESC LIMIT 1,0,The most common income category is < 40K.,4.5,8
+P22,MS2,8,N,Q1,Spoken,Credit,What is the most common card category?,SELECT Card_Category FROM Credit GROUP BY Card_Category ORDER BY COUNT(*) DESC LIMIT 1,0,The most common card category is Blue.,4.5,8
+P22,MS2,9,N,Q1,Spoken,Credit,What is the average months on book?,SELECT AVG(Months_On_Book) FROM Credit,0,The average months on book is 12.,4.5,8
+P22,MS2,10,N,Q1,Spoken,Credit,What is the average credit limit?,SELECT AVG(Credit_Limit) FROM Credit ,0,The average credit limit is 9817 dollars.,4.5,8
+P22,MS2,11,N,Q1,Spoken,Credit,What is the average total transaction amount?,SELECT AVG(Total_Trans_Amt) FROM Credit,0,The average total transaction value is 4404.08.,4.5,8
+P22,MS2,12,N,Q1,Spoken,Credit,What is the average total transaction count?,SELECT AVG(Total_Trans_Ct) FROM Credit,0,The average total transaction count is 65.67.,4.5,8
+P22,MS2,13,N,Q1,Spoken,Credit,What is the highest customer age?,SELECT MAX(Customer_Age) FROM Credit,0,The highest customer age is 87.,4.5,8
+P22,MS2,14,N,Q1,Spoken,Credit,What is the highest income category?,NP,0,The highest income category is > 240K.,4.5,8
+P22,MS2,15,N,Q1,Spoken,Credit,What is the least common card category?,SELECT Card_Category FROM Credit GROUP BY Card_Category ORDER BY COUNT(*) ASC LIMIT 1,0,The least common card category is Platinum.,4.5,8
+P22,MS2,16,N,Q1,Spoken,Credit,What is the highest number of months on book?,SELECT MAX(Months_On_Book) FROM Credit ,0,The highest number of months on book is 186.,4.5,8
+P22,MS2,17,N,Q1,Spoken,Credit,What is the least total transaction count?,SELECT MIN(Total_Trans_Ct) FROM Credit,0,The lowest total transaction count is 0.,4.5,8
+P22,MS2,18,N,Q1,Spoken,Credit,What is the lowest total transaction amount?,SELECT MIN(Total_Trans_Amt) FROM Credit,0,The lowest total transaction value is 0 dollars.,4.5,8
+P22,MS2,19,N,Q1,Spoken,Credit,What is the least common education level?,SELECT Education_Level FROM Credit GROUP BY Education_Level ORDER BY COUNT(*) ASC LIMIT 1,0,The least common education level is Doctorate.,4.5,8
+P22,MS2,20,N,Q1,Spoken,Credit,What is the minimum customer age?,SELECT MIN(Customer_Age) FROM Credit,0,The minimum customer age is 23.,4.5,8
+P22,MS2,21,N,Q1,Spoken,Credit,What is the maximum credit limit?,SELECT MAX(Credit_Limit) FROM Credit ,0,The maximum credit limit is 34516,4.5,8
+P22,MS2,1,N,Q2,Written,Flight,What is the most common month?,SELECT Month FROM Flight GROUP BY Month ORDER BY COUNT(*) DESC LIMIT 1,0,The month with the most delays is March with 504312 delays.,4.5,8
+P22,MS2,2,N,Q2,Written,Flight,What is the most common day of the week?,SELECT Day_Of_Week FROM Flight GROUP BY Day_Of_Week ORDER BY COUNT(*) DESC LIMIT 1,0,The day of the week with the most delays is Wednesday.,4.5,8
+P22,MS2,3,N,Q2,Written,Flight,What is the most common airline?,SELECT Airline FROM Flight GROUP BY Airline ORDER BY COUNT(*) DESC LIMIT 1,0,The airline with the most delays is Southwest Airlines.,4.5,8
+P22,MS2,4,N,Q2,Written,Flight,What is the most common origin airport?,SELECT Origin_Airport FROM Flight GROUP BY Origin_Airport ORDER BY COUNT(*) DESC LIMIT 1,0,The origin airport with the most delays is ATL.,4.5,8
+P22,MS2,5,N,Q2,Written,Flight,What is the most common destination airport?,SELECT Destination_Airport FROM Flight GROUP BY Destination_Airport ORDER BY COUNT(*) DESC LIMIT 1,0,The destination airport with the most delays is ATL.,4.5,8
+P22,MS2,6,N,Q2,Written,Flight,What is the most common scheduled departure?,SELECT Scheduled_Departure FROM Flight GROUP BY Scheduled_Departure ORDER BY COUNT(*) DESC LIMIT 1,0,The most common scheduled departure time is 06:00:00.,4.5,8
+P22,MS2,7,N,Q2,Written,Flight,What is the most common departure time?,SELECT Departure_Time FROM Flight GROUP BY Departure_Time ORDER BY COUNT(*) DESC LIMIT 1,0,The most common actual departure time is 08:24:00.,4.5,8
+P22,MS2,8,N,Q2,Written,Flight,What is the average distance?,SELECT AVG(Distance) FROM Flight,0,The average distance travelled is 822.35 miles.,4.5,8
+P22,MS2,9,N,Q2,Written,Flight,What is the average scheduled arrival time?,SELECT AVG(Arrival_Time) FROM Credit,0,The average scheduled arrival time is 13:45:26.,4.5,8
+P22,MS2,10,N,Q2,Written,Flight,What is the most common scheduled arrival time?,SELECT Scheduled_Arrival FROM Flight GROUP BY Scheduled_Arrival ORDER BY COUNT(*) DESC LIMIT 1,0,The most common scheduled arrival time is 20:30:00.,4.5,8
+P22,MS2,11,N,Q2,Written,Flight,What is the most common arrival time?,SELECT Arrival_Time FROM Flight GROUP BY Arrival_Time ORDER BY COUNT(*) DESC LIMIT 1,0,The most common actual arrival time is 20:45:00.,4.5,8
+P22,MS2,12,N,Q2,Written,Flight,What is the average diverted?,SELECT AVG(Diverted) FROM Flight ,0,The average number of diverted flights per day is 49.,4.5,8
+P22,MS2,13,N,Q2,Written,Flight,What is the average cancelled?,SELECT AVG(Cancelled) FROM Flight,0,The average number of cancelled flights per day is 246.,4.5,8
+P22,MS2,14,N,Q2,Written,Flight,Which origin airport had the most cancelled flights?,SELECT Origin_Airport FROM Flight GROUP BY Origin_Airport ORDER BY SUM(Cancelled) DESC LIMIT 1,0,The origin airport with the most cancelled flights was BOS.,4.5,8
+P22,MS2,15,N,Q2,Written,Flight,Which origin airport had the most diverted flights?,SELECT Origin_Airport FROM Flight GROUP BY Origin_Airport ORDER BY SUM(Diverted) DESC LIMIT 1,0,The origin airport with the most diverted flights was JFK.,4.5,8
+P22,MS2,16,N,Q2,Written,Flight,Which airport has the earliest scheduled departure time?,SELECT Origin_airport FROM Flight GROUP BY Origin_airport ORDER BY MIN(Departure_time) ASC LIMIT 1,0,The airport with the earliest scheduled departure time~ on average~ is LAX with 11:56:18.,4.5,8
+P22,MS2,17,N,Q2,Written,Flight,What is the least common month?,SELECT Month FROM Flight GROUP BY Month ORDER BY COUNT(*) ASC LIMIT 1,0,The least common month is February.,4.5,8
+P22,MS2,18,N,Q2,Written,Flight,What is the least common day of the week?,SELECT Day_Of_Week FROM Flight GROUP BY Day_Of_Week ORDER BY COUNT(*) ASC LIMIT 1,0,The day of the week with the least delays is Tuesday.,4.5,8
+P22,MS2,19,N,Q2,Written,Flight,What is the least common airline?,SELECT Airline FROM Flight GROUP BY Airline ORDER BY COUNT(*) ASC LIMIT 1,0,The airline with the least delays is Alaskan Airlines.,4.5,8
+P22,MS2,20,N,Q2,Written,Flight,What is the least common origin airport?,SELECT Origin_Airport FROM Flight GROUP BY Origin_Airport ORDER BY COUNT(*) ASC LIMIT 1,0,The origin airport with the least delays is Zipcode 11503.,4.5,8
+P22,MS2,21,N,Q2,Written,Flight,What is the least common destination airport?,SELECT Destination_Airport FROM Flight GROUP BY Destination_Airport ORDER BY COUNT(*) ASC LIMIT 1,0,The destination airport with the least delays is Zipcode 12098.,4.5,8
+P22,MS2,22,N,Q2,Written,Flight,What is the earliest scheduled departure time?,SELECT MIN(Scheduled_Departure) FROM Flight ,0,The earliest scheduled departure time is 00:01:00.,4.5,8
+P22,MS2,23,N,Q2,Written,Flight,What is the latest scheduled departure time?,SELECT MAX(Scheduled_Departure) FROM Flight,0,The latest scheduled departure Tims is 23:59:00.,4.5,8
+P22,MS2,24,N,Q2,Written,Flight,What is the earliest departure time?,SELECT MIN(Departure_Time) FROM Flight ,0,The earliest actual departure time is 00:00:00.,4.5,8
+P22,MS2,25,N,Q2,Written,Flight,What is the latest departure time?,SELECT MAX(Departure_Time) FROM Flight,0,The latest actual departure time is 23:59:00.,4.5,8
+P22,MS2,26,N,Q2,Written,Flight,What is the least distance?,SELECT MIN(Distance) FROM Flight,0,The least distance travelled is 18 miles from EWR to JFK.,4.5,8
+P22,MS2,27,N,Q2,Written,Flight,What is the maximum distance?,SELECT MAX(Distance) FROM Flight,0,The maximum distance travelled is 4218 miles from EWR to HNL.,4.5,8
+P23,MS2,1,N,E1,Written,Credit,What is the customer's age?,SELECT Customer_Age FROM Credit   ,0,The average customer age is 43.,4,6
+P23,MS2,10,N,E1,Written,Credit,What is the total trans ct?,SELECT Total_Trans_Ct FROM Credit ,0,The average total transaction count is 65.78.,4,6
+P23,MS2,11,N,E1,Written,Credit,What is the attrition flag?,SELECT Attrition_Flag FROM Credit  ,0,The most common attrition flag is Existing Customer.,4,6
+P23,MS2,8,N,E1,Written,Credit,What is the credit card or credit limit?,SELECT Credit_Limit FROM Credit,0,The average credit limit is 9817 dollars.,4,6
+P23,MS2,3,N,E1,Written,Credit,What is the education level?,SELECT Education_Level FROM Credit,0,The most common education level is High School.,4,6
+P23,MS2,6,N,E1,Written,Credit,What is the card category?,SELECT Card_Category FROM Credit,0,The most common card category is Blue.,4,6
+P23,MS2,7,N,E1,Written,Credit,What is the months on book?,SELECT Months_On_Book FROM Credit,0,The average months on book is 14.,4,6
+P23,MS2,4,N,E1,Written,Credit,What is the income?,SELECT Income_Category FROM Credit,0,The most common income category is <$40K.,4,6
+P23,MS2,2,N,E1,Written,Credit,What is the gender?,SELECT Gender FROM Credit,0,The most common gender is Female.,4,6
+P23,MS2,5,N,E1,Written,Credit,What is the marital status?,SELECT Marital_Status FROM Credit,0,The most common marital status is Married.,4,6
+P23,MS2,9,N,E1,Written,Credit,What is the total trans amt?,SELECT Total_Trans_Amt FROM Credit,0,The average total transaction amount is 4318.19.,4,6
+P23,MS2,12,N,E1,Written,Credit,What is the dependent count?,SELECT Dependent_Count FROM Credit ,0,The average dependent count is 2.1.,4,6
+P23,MS2,11,N,E2,Spoken,Flight,How many flights were diverted?,SELECT COUNT(*) FROM Flight WHERE Diverted = 1,0,There were 17816 diverted flights.,4,6
+P23,MS2,7,N,E2,Spoken,Flight,What is the departure time?,SELECT Departure_Time FROM Flight,0,The most common departure time is 12:00:00.,4,6
+P23,MS2,3,N,E2,Spoken,Flight,airline,SELECT Airline FROM Flight,0,The airline with the most delays is Delta.,4,6
+P23,MS2,13,N,E2,Spoken,Flight,What month?,SELECT Month FROM Flight,0,The month with the most delays is December with 514617 delays.,4,6
+P23,MS2,5,N,E2,Spoken,Flight,What is the destination airport?,SELECT Destination_Airport FROM Flight,0,The destination airport with the most delays is MIA~ the least delays is Zipcode 11516.,4,6
+P23,MS2,12,N,E2,Spoken,Flight,How many flights were cancelled?,SELECT COUNT(*) FROM Flight WHERE Cancelled = 1,0,There were 80716 cancelled flights.,4,6
+P23,MS2,16,N,E2,Spoken,Flight,What's the destination airport?,SELECT Destination_Airport FROM Flight,0,The destination airport with the most delays is MIA~ the least delays is Zipcode 11516.,4,6
+P23,MS2,10,N,E2,Spoken,Flight,What is diverted?,SELECT Diverted FROM Flight,0,There are two values for diverted~ 0 or 1.,4,6
+P23,MS2,15,N,E2,Spoken,Flight,What's the origin airport?,SELECT Origin_Airport FROM Flight,0,The origin airport with the most delays is JFK~ the origin airport with the least delays is Zipcode 56171.,4,6
+P23,MS2,14,N,E2,Spoken,Flight,What is the distance?,SELECT Distance FROM Flight ,0,The average flight distance is 798.67 miles.,4,6
+P23,MS2,8,N,E2,Spoken,Flight,What is the distance?,SELECT Distance FROM Flight,0,The average flight distance is 798.67 miles.,4,6
+P23,MS2,9,N,E2,Spoken,Flight,What is the arrival time?,SELECT Arrival_Time FROM Flight,0,The most common arrival time is 20:45:00.,4,6
+P23,MS2,1,N,E2,Spoken,Flight,month,SELECT Month FROM Flight,0,The month with the most delays is December with 514617 delays.,4,6
+P23,MS2,6,N,E2,Spoken,Flight,What is the scheduled departure?,SELECT Scheduled_Departure FROM Flight,0,The most common scheduled departure is 20:30:00.,4,6
+P23,MS2,2,N,E2,Spoken,Flight,day of the week,SELECT Day_Of_Week FROM Flight,0,The day of the week with the most delays is Monday.,4,6
+P23,MS2,4,N,E2,Spoken,Flight,What is the origin airport?,SELECT Origin_Airport FROM Flight,0,The origin airport with the most delays is JFK~ the origin airport with the least delays is Zipcode 56171.,4,6
+P23,MS2,5,N,Q1,Written,Credit,What is the education level?,SELECT Education_Level FROM Credit ,0,The most common education level is Graduate.,4,6
+P23,MS2,2,N,Q1,Written,Credit,What is the customer age?,SELECT Customer_Age FROM Credit,0,The average customer age is 46.,4,6
+P23,MS2,8,N,Q1,Written,Credit,What is the card category?,SELECT Card_Category FROM Credit,0,The most common card category is Blue.,4,6
+P23,MS2,1,N,Q1,Written,Credit,What is the attrition flag?,SELECT Attrition_Flag FROM Credit ,0,The most common attrition flag is Existing customer.,4,6
+P23,MS2,12,N,Q1,Written,Credit,What is the total trans ct?,SELECT Total_Trans_Ct FROM Credit ,0,The average total transaction count is 65.99.,4,6
+P23,MS2,9,N,Q1,Written,Credit,What is the months on book?,SELECT Months_On_Book FROM Credit,0,The average months on book is 12.,4,6
+P23,MS2,11,N,Q1,Written,Credit,What is the total trans amt?,SELECT Total_Trans_Amt FROM Credit,0,The average total transaction amount is 4404.08.,4,6
+P23,MS2,6,N,Q1,Written,Credit,What is the marital status?,SELECT Marital_Status FROM Credit,0,The most common marital status is Married.,4,6
+P23,MS2,7,N,Q1,Written,Credit,What is the income category?,SELECT Income_Category FROM Credit,0,The most common income category is < $40K.,4,6
+P23,MS2,10,N,Q1,Written,Credit,What is the credit limit?,SELECT Credit_Limit FROM Credit ,0,The average credit limit is 9888 dollars.,4,6
+P23,MS2,3,N,Q1,Written,Credit,What is the gender?,SELECT Gender FROM Credit,0,The most common gender is Female.,4,6
+P23,MS2,4,N,Q1,Written,Credit,What is the dependent count?,SELECT Dependent_Count FROM Credit,0,The average dependent count is 2.3.,4,6
+P23,MS2,10,N,Q2,Spoken,Flight,What's the arrival time?,SELECT Arrival_Time FROM Flight,0,The most common arrival time is 10:20:00.,4,6
+P23,MS2,9,N,Q2,Spoken,Flight,What's the scheduled arrival?,SELECT Scheduled_Arrival FROM Flight,0,The most common scheduled arrival is 06:00:00.,4,6
+P23,MS2,12,N,Q2,Spoken,Flight,What's the average cancelled?,SELECT AVG(Cancelled) FROM Flight,0,The average cancelled is .0145.,4,6
+P23,MS2,4,N,Q2,Spoken,Flight,Origin airport,SELECT Origin_Airport FROM Flight,0,The origin airport with the most delays was ATL.,4,6
+P23,MS2,6,N,Q2,Spoken,Flight,What's the scheduled departure?,SELECT Scheduled_Departure FROM Flight,0,The most common scheduled departure time was 20:00:00.,4,6
+P23,MS2,14,N,Q2,Spoken,Flight,What's average cancelled?,SELECT AVG(Cancelled) FROM Flight,0,The average cancelled is .0145,4,6
+P23,MS2,3,N,Q2,Spoken,Flight,Airline,SELECT Airline FROM Flight,0,The airline with the most delays was Southwest Airlines.,4,6
+P23,MS2,1,N,Q2,Spoken,Flight,What month had the most delay?,SELECT Month FROM Flight GROUP BY Month ORDER BY COUNT(*) DESC LIMIT 1,0,The month with the most delays was March with 504312 delays.,4,6
+P23,MS2,11,N,Q2,Spoken,Flight,What's the average diverted?,SELECT AVG(Diverted) FROM Flight,0,The average diverted is .00287.,4,6
+P23,MS2,7,N,Q2,Spoken,Flight,What's the departure time?,SELECT Departure_Time FROM Flight ,0,The most common departure time was 20:30:00.,4,6
+P23,MS2,2,N,Q2,Spoken,Flight,Day of the week,SELECT Day_Of_Week FROM Flight,0,The day of the week with the most delays was Wednesday.,4,6
+P23,MS2,5,N,Q2,Spoken,Flight,What's the destination airport?,SELECT Destination_Airport FROM Flight,0,The destination airport with the most delays was ATL.,4,6
+P23,MS2,15,N,Q2,Spoken,Flight,What is the scheduled departure?,SELECT Scheduled_Departure FROM Flight,0,The most common scheduled departure time was 20:00:00.,4,6
+P23,MS2,8,N,Q2,Spoken,Flight,What's the distance?,SELECT Distance FROM Flight,0,The average distance is 822.35 miles.,4,6
+P23,MS2,13,N,Q2,Spoken,Flight,What's cancelled?,SELECT Cancelled FROM Flight ,0,The values for cancelled are 0 or 1.,4,6
