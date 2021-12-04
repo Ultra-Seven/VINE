@@ -30,7 +30,7 @@ Evaluation
 We evaluate the transcription and translation accuracy for VINE. For voice queries, we generate transcripts by two automated speech-to-text transcription services (dentoed by **Service X** and **Service Y**). The transcription accuracy is evaluated according to the Jaccard similarity coefficient. Then, we compare Execution Accuracy of SQL translation for different natural-language-to-SQL (NL2SQL) models. Note that we exclude queries that are not executable (e.g. non-translatable queries) in the evaluation. ***We are looking forward to updating more accuracy results for other advanced NL2SQL models.***
 
 ***Transcription***
-> 
+ 
 | Transcription | Dataset | Accuracy |
 | ----------- | ----------- | ----------- |
 | Service X | Credit | 88.3% |
