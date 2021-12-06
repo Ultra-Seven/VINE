@@ -12,18 +12,20 @@ Data Content and Format
 ------
 VINE benchmark can be found in `vine.csv` that contains the following fields:
 - `Name`: Anonymized identifier of participant.
-- `Study`: TODO
+- `Study`: Study of modality to vary (MS1: Input Study, MS2: Output Study)
 - `Query_Num`: Order of query in each phase
 - `Is_CS`: Whether the participant is in CS major?
 - `Phase`: Phase identifier. "Exploration" phase starts with "E", while "Quiz" phase starts with "Q".
 - `Mode`: Input modality.
 - `Dataset`: Database to query.
 - `Question`: Natural language question.
+- `Transcript_X`: Transcript from Service X.
+- `Transcript_Y`: Transcript from Service Y.
 - `SQL_Translation`: Gold SQL query corresponding to the question.
-- `Context`: Whether the question is context-dependent? (TODO?)
+- `Context`: Whether the question is context-dependent?
 - `Answer`: Response to the question.
-- `Flight_Score`: TODO
-- `Credit_Score`: TODO
+- `Flight_Score`: Quiz score of the participant on the Flights data set
+- `Credit_Score`: Quiz score of the participant on the Credit data set
 
 Evaluation
 ------
@@ -38,8 +40,8 @@ We evaluate the transcription and translation accuracy for VINE. For voice queri
 | Service Y | Credit | 76.8% |
 | Service Y | Flights | 76.4% |
 
-***Translation (The rank is based on ACC-G)***
-> We report accuracy for written queries input only in the ACC-W column. For VINE’s voice input queries, we generate SQL translations based on manually generated transcripts as well as based on **Service X** and **Service Y**, respectively. The accuracy of each setup is denoted by ACC-G, ACC-X, and ACC-Y accordingly.
+***Translation***
+> We report accuracy for written queries input only in the ACC-W column. For VINE’s voice input queries, we generate SQL translations based on manually generated transcripts as well as based on **Service X** and **Service Y**, respectively. The accuracy of each setup is denoted by ACC-G, ACC-X, and ACC-Y accordingly. The rank is based on ACC-G.
 
 
 | Rank | Model | ACC-G | ACC-X | ACC-Y | ACC-W |
